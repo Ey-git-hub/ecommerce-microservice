@@ -1,17 +1,19 @@
-package com.app.ecommerce.repository;
+package com.service.product.repository;
 
 import aj.org.objectweb.asm.commons.Remapper;
-import com.app.ecommerce.model.Product;
+// import com.app.ecommerce.model.Product;
 //import com.ecommerce.product.models.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.service.product.model.Product;
+
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+// @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findByActiveTrue();
 

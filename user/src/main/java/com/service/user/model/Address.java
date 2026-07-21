@@ -1,4 +1,4 @@
-package com.app.ecommerce.model;
+package com.service.user.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name="address")
+@Table(name = "address")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +16,5 @@ public class Address {
     private String city;
     private String country;
     private String zipcode;
-
 
 }

@@ -1,4 +1,4 @@
-package com.app.ecommerce.model;
+package com.service.product.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-@Entity(name="products")
+@Entity(name = "products")
 @NoArgsConstructor
 public class Product {
     @Id
@@ -25,7 +25,7 @@ public class Product {
     private Integer stockQuantity;
     private String category;
     private String imageUrl;
-    private boolean active=true;
+    private boolean active = true;
     @CreationTimestamp
     private LocalDateTime createdAt;
     @UpdateTimestamp

@@ -1,12 +1,13 @@
-package com.app.ecommerce.controller;
+package com.service.product.controllers;
 
-import com.app.ecommerce.dto.ProductRequest;
-import com.app.ecommerce.dto.ProductResponse;
-import com.app.ecommerce.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.service.product.dto.ProductRequest;
+import com.service.product.dto.ProductResponse;
+import com.service.product.service.ProductService;
 
 import java.util.List;
 
@@ -15,26 +16,33 @@ import java.util.List;
 @RequestMapping("/api/product")
 public class ProductController {
     private final ProductService productService;
+
     @PostMapping
-    public ResponseEntity<ProductResponse> createProduct(@RequestBody ProductRequest productRequest){
+    public ResponseEntity<ProductResponse> createProduct(@RequestBody ProductRequest productRequest) {
         return new ResponseEntity<ProductResponse>(productService.createProduct(productRequest), HttpStatus.CREATED);
     }
+
     @PutMapping("/id")
-    public ResponseEntity<ProductResponse> updateProduct(@PathVariable Long id,@RequestBody ProductRequest productRequest){
-        return productService.updateProduct(id,productRequest)
+    public ResponseEntity<ProductResponse> updateProduct(@PathVariable Long id,
+            @RequestBody ProductRequest productRequest) {
+        return productService.updateProduct(id, productRequest)
                 .map(ResponseEntity::ok)
-                .orElseGet(()->ResponseEntity.notFound().build());
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
+
     @GetMapping
-    public ResponseEntity<List<ProductResponse>> getAllProduct(){
+    public ResponseEntity<List<ProductResponse>> getAllProduct() {
         return ResponseEntity.ok(productService.getAllProducts());
     }
+
     @DeleteMapping("/id")
-    public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
-       boolean deleted= productService.deleteProduct(id);
-        return deleted ? ResponseEntity.noContent().build():ResponseEntity.notFound().build();
-}
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
+        boolean deleted = productService.deleteProduct(id);
+        return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+    }
+
     @GetMapping("/id")
-    public ResponseEntity<List<ProductResponse>> searchProduct(@RequestParam String keyword){
-     return ResponseEntity.ok(productService.searchProducts(keyword));}
+    public ResponseEntity<List<ProductResponse>> searchProduct(@RequestParam String keyword) {
+        return ResponseEntity.ok(productService.searchProducts(keyword));
+    }
 }

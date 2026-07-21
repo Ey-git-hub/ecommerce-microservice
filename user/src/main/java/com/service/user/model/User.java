@@ -1,4 +1,4 @@
-package com.app.ecommerce.model;
+package com.service.user.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name="user_table")
+@Entity(name = "user_table")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,10 +21,10 @@ public class User {
     private String lastName;
     private String email;
     private String phone;
-    private UserRole role=UserRole.CUSTOMER;
-    //shows if the user is deleted the address is also deleted
-    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name="address_id",referencedColumnName = "id")
+    private UserRole role = UserRole.CUSTOMER;
+    // shows if the user is deleted the address is also deleted
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
     @CreationTimestamp
     private LocalDateTime createdAt;

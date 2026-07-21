@@ -1,8 +1,9 @@
-package com.app.ecommerce.dto;
+package com.service.product.dto;
 
 import lombok.Data;
 
 import java.math.BigDecimal;
+
 @Data
 public class ProductResponse {
     private Long Id;

@@ -1,10 +1,10 @@
-package com.app.ecommerce.dto;
+package com.service.user.dto;
 
 import lombok.Data;
 
 @Data
 public class AddressDTO {
-//    private String Id;
+    // private String Id;
     private String street;
     private String city;
     private String country;
