@@ -2,9 +2,9 @@ spring:
   application:
     name: user
   datasource:
-    url: jdbc:postgresql://ep-rough-scene-zamrnv5o-pooler.c-2.eu-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
-    username: neondb_owner
-    password: npg_lKGV5vuQs1Sp
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
   # Enable automatic schema creation/updating
   jpa:
     hibernate:

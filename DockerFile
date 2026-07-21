@@ -1,13 +1,24 @@
-# Build the JAR file
+# --- Stage 1: Build Stage ---
 FROM maven:3.9-eclipse-temurin-21-alpine AS build
 WORKDIR /app
-COPY pom.xml .
-COPY src ./src
+
+# Accept the target service directory name (order, product, or user)
+ARG SERVICE_NAME
+
+# Copy Maven/source files for the specific service
+COPY ${SERVICE_NAME}/pom.xml ./${SERVICE_NAME}/
+COPY ${SERVICE_NAME}/src ./${SERVICE_NAME}/src
+
+# Build the specific service JAR
+WORKDIR /app/${SERVICE_NAME}
 RUN mvn clean package -DskipTests
 
-# Run the app
+# --- Stage 2: Run Stage ---
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
+
+ARG SERVICE_NAME
+COPY --from=build /app/${SERVICE_NAME}/target/*.jar app.jar
+
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
