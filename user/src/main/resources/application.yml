@@ -1,6 +1,8 @@
 spring:
   application:
     name: user
+  config:
+    import: optional:file:${user.dir}/.env[.properties]
   datasource:
     url: ${SPRING_DATASOURCE_URL}
     username: ${SPRING_DATASOURCE_USERNAME}
