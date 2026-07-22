@@ -13,3 +13,5 @@ spring:
 
     # Useful for debugging: prints executed SQL statements to the console
     show-sql: true
+server:
+  port: 8081
