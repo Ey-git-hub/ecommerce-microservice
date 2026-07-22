@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+        "type": "java",
+        "name": "UserApplication",
+        "request": "launch",
+        "mainClass": "com.service.user.UserApplication",
+        "projectName": "user"
+    },
+    {
+        "type": "java",
+        "name": "com.ecommerce.configserver",
+        "request": "launch",
+        "mainClass": "com.ecommerce.configserver.ConfigserverApplication",
+        "projectName": "configserver"
+    },
+    {
+        "type": "java",
+        "name": "Spring Boot-UserApplication",
+        "request": "launch",
+        "mainClass": "com.service.user;",
+        "projectName": "user",
+        "envFile": "${workspaceFolder}/user/.env"
+    }
+]
+}

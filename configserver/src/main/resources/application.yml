@@ -1,15 +1,13 @@
+server:
+  port: 8888
+
 spring:
   application:
     name: configserver
-  # config:
-  #   import: optional:file:${user.dir}/.env[.properties]
   profiles:
     active: native
-
   cloud:
     config:
       server:
         native:
           search-locations: classpath:/config
-server:
-  port: 8888
