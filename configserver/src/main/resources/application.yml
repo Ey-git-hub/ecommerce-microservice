@@ -1,8 +1,11 @@
 spring:
   application:
     name: configserver
+  # config:
+  #   import: optional:file:${user.dir}/.env[.properties]
   profiles:
     active: native
+
   cloud:
     config:
       server:
