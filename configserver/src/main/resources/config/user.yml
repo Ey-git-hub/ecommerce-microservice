@@ -1,0 +1,15 @@
+spring:
+  config:
+    import: optional:file:${user.dir}/.env[.properties]
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  # Enable automatic schema creation/updating
+  jpa:
+    hibernate:
+      ddl-auto: update
+      # generate-ddl: true
+
+    # Useful for debugging: prints executed SQL statements to the console
+    show-sql: true
